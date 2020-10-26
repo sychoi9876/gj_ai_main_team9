@@ -106,24 +106,31 @@
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__right">
+                            {% if user.is_authenticated %}
+                            {{ user.username }}님 환영합니다
+                            {% else %}
+                            메뉴친구에 오신 것을 환영합니다
+                            {% endif %}
+                            
+                            
                             <!-- <div class="header__top__right__social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
                                 <a href="#"><i class="fa fa-pinterest-p"></i></a>
                             </div> -->
-                            <div class="header__top__right__language">
-                                <!-- <img src="img/language.png" alt="">
+                            {% comment %} <div class="header__top__right__language">
+                                <img src="img/language.png" alt="">
                                 <div>English</div>
                                 <span class="arrow_carrot-down"></span>
                                 <ul>
                                     <li><a href="#">Spanis</a></li>
                                     <li><a href="#">English</a></li>
-                                </ul> -->
-                            </div>
-                            <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
-                            </div>
+                                </ul>
+                            </div> {% endcomment %}
+                            {% comment %} <div class="header__top__right__auth">
+                                <a href="{% url 'login' %}"><i class="fa fa-user"></i> Login</a>
+                            </div> {% endcomment %}
                         </div>
                     </div>
                 </div>
@@ -139,7 +146,7 @@
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="{% url 'index' %}">Home</a></li>
+                            <li><a href="{% url 'index' %}">Home</a></li>
                             {% comment %} <li><a href="./shop-grid.html">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
@@ -150,7 +157,13 @@
                                 </ul>
                             </li>
                             <li><a href="./blog.html">Blog</a></li> {% endcomment %}
+                            {% if user.is_authenticated %}
+                            <li><a href="{% url 'login' %}">추천메뉴</a></li>
+                            <li><a href="{% url 'logout' %}">로그아웃</a></li>
+                            {% else %}
                             <li><a href="{% url 'signup' %}">회원가입</a></li>
+                            <li><a href="{% url 'login' %}">로그인</a></li>
+                            {% endif %}                            
                             <!-- <li><a href="./contact.html">Contact</a></li> -->
                         </ul>
                     </nav>

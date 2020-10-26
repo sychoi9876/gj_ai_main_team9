@@ -8,7 +8,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>메뉴친구 | 회원가입</title>
+    <title>메뉴친구 | 로그인</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -153,7 +153,7 @@
                                 </ul>
                             </li>
                             <li><a href="./blog.html">Blog</a></li> {% endcomment %}
-                            {% if user.is_authenticated %}                            
+                            {% if user.is_authenticated %}
                             <li><a href="{% url 'login' %}">추천메뉴</a></li>
                             <li><a href="{% url 'logout' %}">로그아웃</a></li>
                             {% else %}
@@ -242,12 +242,13 @@
     <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
+    {% if user.is_authenticated %}
     <section class="breadcrumb-section set-bg" data-setbg="/static/img/breadcrumb.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>회원가입</h2>
+                        <h2>추천메뉴</h2>
                         <!-- <div class="breadcrumb__option">
                             <a href="./index.html">Home</a>
                             <span>회원가입</span>
@@ -257,6 +258,24 @@
             </div>
         </div>
     </section>
+    
+    {% else %}
+    <section class="breadcrumb-section set-bg" data-setbg="/static/img/breadcrumb.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>로그인</h2>
+                        <!-- <div class="breadcrumb__option">
+                            <a href="./index.html">Home</a>
+                            <span>회원가입</span>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endif %}
     <!-- Breadcrumb Section End -->
 
     <!-- Checkout Section Begin -->
@@ -268,16 +287,85 @@
                     </h6>
                 </div>
             </div> -->
+
+
+
+
             <div class="checkout__form">
-                <h4>회원가입</h4>
+                {% if user.is_authenticated %}
+                <h4>로그인 성공!
+                {{ user.username }}님 환영합니다.</h4>
+                {% comment %} <a href="{% url 'logout' %}">로그아웃</a> {% endcomment %}
+
+                <h4>일주일 추천 식단</h4>
+                <style type="text/css">
+                .tg  {border-collapse:collapse;border-color:#bbb;border-spacing:0;}
+                .tg td{background-color:#E0FFEB;border-color:#bbb;border-style:solid;border-width:1px;color:#594F4F;
+                font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+                .tg th{background-color:#9DE0AD;border-color:#bbb;border-style:solid;border-width:1px;color:#493F3F;
+                font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+                .tg .tg-0pky{border-color:inherit;text-align:center;vertical-align:top}
+                .tg .tg-0lax{text-align:center;vertical-align:top}
+                </style>
+                <table class="tg">
+                <colgroup>
+                <col style="width: 250px">
+                <col style="width: 250px">
+                <col style="width: 250px">
+                <col style="width: 250px">
+                <col style="width: 250px">
+                <col style="width: 250px">
+                <col style="width: 250px">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th class="tg-0pky">일</th>
+                    <th class="tg-0pky">월</th>
+                    <th class="tg-0pky">화</th>
+                    <th class="tg-0pky">수</th>
+                    <th class="tg-0pky">목</th>
+                    <th class="tg-0lax">금</th>
+                    <th class="tg-0lax">토</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="tg-0pky"><a href="{% url 'recipe1' %}">마늘아몬드조림</td>
+                    <td class="tg-0pky"></td>
+                    <td class="tg-0pky"></td>
+                    <td class="tg-0pky"></td>
+                    <td class="tg-0pky"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                </tr>
+                </tbody>
+                </table>
+                <br>
+                
+                <h4><div class="recipe_title">마늘아몬드조림</div></h4>
+                <br>
+                <h5><div class="method_type"><span>방법별 분류: </span>볶음</div></h5>
+                <h5><div class="cook_time"><span>조리시간: </span>20분 이내</div></h5>
+                <h5><div class="kcal"><span>kcal: </span>594</div></h5>
+                <br>
+                <h5><div class="main_ingredients"><span>주요재료: </span>'채소류': '통마늘', '견과류': '아몬드'</div></h5>
+                <h5><div class="ingredients"><span>부재료: </span>'조미료': '식용유,간장,물엿', '기타': '물'</div></h5>
+                <br>
+                <h5><div class="steps"><span>조리순서: </span>1.먼저 깐 마늘은 물로 한번 헹구어 주시구요. 마늘이 너무 크다면 먹기좋게 반쪽으로 나눠 주세요,2.달궈진 팬에 식용유를 둘러 준 뒤 마늘을 넣고 튀기듯 노릇노릇 구워 줍니다. 굽다보면 마늘의 알싸한 향이 올라와 군침돌아요,3.마늘이 노릇노릇 구워지면 아몬드도 넣고 살짝 볶아줍니다아몬드 없으심 호두를 넣어주셔도 되고 그것도 없으시면 마늘만 넣고 만드셔도 되요,4.다 볶아지면 미리 준비해둔 양념을 부어 약불에서 타지 않게 조려주심 끝^^,5.정말 간단하게 만든 건강반찬 마늘아몬드 조림 완성이에요,6.물엿이 들어가서인지 윤기가 좌르르 흘러요.한번 먹어보니 알싸한 맛이 하나도 없고 정말 부드러우면서 맛있네요, 간장과 물엿의 양념들이 어우러져 단짠단짠한 맛이 밥과 함께 먹으면 참 맛있어요, 몸에 좋은 마늘과 아몬드의 조합이라 우리집 최애반찬으로 추천합니다^^암환자분들 항암반찬으로도 좋습니다.</div></h5>
+
+
+
+
+                {% else %}
+                <h4>로그인</h4>
                 <h5>
                     {% if error %}
                         <div class="alert alert-danger" role="alert">
                             {{ error }}
                         <div>
                     {% endif %}
-                </h5>                
-                <form method="POST" action="{% url 'signup' %}">
+                </h5>
+                <form method="POST" action="{% url 'login' %}">
                 {% csrf_token %}
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
@@ -337,165 +425,20 @@
                             <p>Create an account by entering the information below. If you are a returning customer
                                 please login at the top of the page</p> -->
                             <div class="checkout__input">
-                                <p>이름<span>*</span></p>
-                                <input type="text" name="name" id="name">
-                            </div>
-                            <div class="checkout__input">
                                 <p>아이디<span>*</span></p>
                                 <input type="text" name="username" id="username">
                             </div>
-
-
-                            <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-
                             <div class="checkout__input">
                                 <p>비밀번호<span>*</span></p>
-                                <input type="password" name="password" id="password" class="pw" placeholder="비밀번호">
-                                <span>영문, 숫자, 특수문자의 입력이 가능합니다.</span>
+                                <input type="password" name="password" id="password_1" class="pw" placeholder="비밀번호">
                             </div>
 
-                            <div class="checkout__input">
-                                <p>비밀번호 확인<span>*</span></p>
-                                <input type="password" name="password2" id="password_2" class="pw" placeholder="비밀번호 확인">
-                                <span id="alert-success" style="display: none;">비밀번호가 일치합니다.</span>
-                                <span id="alert-danger" style="display: none; color: #d92742; font-weight: bold; ">비밀번호가 일치하지 않습니다.</span>
-                            </div>
-    
-                            <script>
-                                $('.pw').focusout(function () {
-                                    var pwd1 = $("#password").val();
-                                    var pwd2 = $("#password_2").val();
-                            
-                                    if ( pwd1 != '' && pwd2 == '' ) {
-                                        null;
-                                    } else if (pwd1 != "" || pwd2 != "") {
-                                        if (pwd1 == pwd2) {
-                                            $("#alert-success").css('display', 'inline-block');
-                                            $("#alert-danger").css('display', 'none');
-                                        } else {
-                                            alert("비밀번호가 일치하지 않습니다. 비밀번호를 재확인해주세요.");
-                                            $("#alert-success").css('display', 'none');
-                                            $("#alert-danger").css('display', 'inline-block');
-                                        }
-                                    }
-                                });
-                            </script>
-
-                            <div class="checkout__input">
-                                <p>이메일<span>*</span></p>
-                                <input type="text" name="email" id="email">
-                            </div>
-
-                            <div class="checkout__input">
-                                <p>좋아하는 음식<span>*</span></p>
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="like1">김치찌개
-                                    <input type="checkbox" id="like1">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="like2">된장찌개
-                                    <input type="checkbox" id="like2">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="like3">불고기
-                                    <input type="checkbox" id="like3">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="like4">김치
-                                    <input type="checkbox" id="like4">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="like5">비빔밥
-                                    <input type="checkbox" id="like5">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="like6">잡채
-                                    <input type="checkbox" id="like6">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="like7">갈비찜
-                                    <input type="checkbox" id="like7">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="like8">떡볶이
-                                    <input type="checkbox" id="like8">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <br>
-
-                            <div class="checkout__input">
-                                <p>싫어하는 음식재료<span></span></p>
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="dislike1">된장
-                                    <input type="checkbox" id="dislike1">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="dislike2">청국장
-                                    <input type="checkbox" id="dislike2">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="dislike3">돼지고기
-                                    <input type="checkbox" id="dislike3">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="dislike4">소고기
-                                    <input type="checkbox" id="dislike4">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="dislike5">닭고기
-                                    <input type="checkbox" id="dislike5">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="dislike6">오이
-                                    <input type="checkbox" id="dislike6">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="dislike7">낙지
-                                    <input type="checkbox" id="dislike7">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="dislike8">김치
-                                    <input type="checkbox" id="dislike8">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
                             <!-- <div class="checkout__input">
                                 <p>Order notes<span>*</span></p>
                                 <input type="text"
                                     placeholder="Notes about your order, e.g. special notes for delivery.">
                             </div> -->
-                            <button type="submit" class="site-btn">회원가입</button>
+                            <button type="submit" class="site-btn">로그인</button>
                         </div>
                         <!-- <div class="col-lg-4 col-md-6">
                             <div class="checkout__order">
@@ -537,6 +480,7 @@
                     </div>
                 </form>
             </div>
+            {% endif %}
         </div>
     </section>
     <!-- Checkout Section End -->
@@ -624,3 +568,4 @@
 </body>
 
 </html>
+
