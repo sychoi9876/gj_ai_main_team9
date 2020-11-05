@@ -278,7 +278,7 @@
                     {% endif %}
                 </h5>                
                 <form method="POST" action="{% url 'signup' %}">
-                {% csrf_token %}
+                    {% csrf_token %}
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
                             <div class="row">
@@ -385,55 +385,128 @@
                                 <p>이메일<span>*</span></p>
                                 <input type="text" name="email" id="email">
                             </div>
-
+                            <br>
                             <div class="checkout__input">
+                                <p>키<span>*</span></p>
+                                <input type="text" name="height" id="height">
+                            </div>
+                            <div class="checkout__input">
+                                <p>체중<span>*</span></p>
+                                <input type="text" name="weight" id="weight">
+                            </div>
+                            <div class="checkout__input">
+                                <p>성별<span>*</span></p>
+                                <input type="text" name="gender" id="gender">
+                            </div>
+
+                            <br>                                
+                            <div class="checkout__input">
+                                <p>재료 카테고리 선호도<span>*</span></p>
+                                <p>(선호하는 정도가 높으면 5, 낮으면 1, 중간이면 3을 입력해주세요)</p>
+                            </div>
+                            <div>
+                                <label for="ingre1">밥/빵
+                                    <input type="text" id="밥빵" name="밥빵">
+                                </label>
+                            </div>
+                            <div>
+                                <label for="ingre2">김치류
+                                    <input type="text" id="김치류" name="김치류">
+                                </label>
+                            </div>
+                            <div>
+                                <label for="ingre3">난류
+                                    <input type="text" id="난류" name="난류">
+                                </label>
+                            </div>
+                            <div>
+                                <label for="ingre4">면류
+                                    <input type="text" id="면류" name="면류">
+                                </label>
+                            </div>
+                            <div>
+                                <label for="ingre5">버섯류
+                                    <input type="text" id="버섯류" name="버섯류">
+                                </label>
+                            </div>
+                            <div>
+                                <label for="ingre6">유제품
+                                    <input type="text" id="유제품" name="유제품">
+                                </label>
+                            </div>
+                            <div>
+                                <label for="ingre7">육류
+                                    <input type="text" id="육류" name="육류">
+                                </label>
+                            </div>
+                            <div>
+                                <label for="ingre8">조리가공품류
+                                    <input type="text" id="조리가공식품류" name="조리가공식품류">
+                                </label>
+                            </div>
+                            <div>
+                                <label for="ingre9">채소류
+                                    <input type="text" id="채소류" name="채소류">
+                                </label>
+                            </div>
+                            <div>
+                                <label for="ingre10">해산물
+                                    <input type="text" id="해산물" name="해산물">
+                                </label>
+                            </div>
+
+
+
+
+
+                            {% comment %} <div class="checkout__input">
                                 <p>좋아하는 음식<span>*</span></p>
                             </div>
                             <div class="checkout__input__checkbox">
                                 <label for="like1">김치찌개
-                                    <input type="checkbox" id="like1">
+                                    <input type="checkbox" id="like1" value="like1">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
                             <div class="checkout__input__checkbox">
                                 <label for="like2">된장찌개
-                                    <input type="checkbox" id="like2">
+                                    <input type="checkbox" id="like2" value="like2">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
                             <div class="checkout__input__checkbox">
                                 <label for="like3">불고기
-                                    <input type="checkbox" id="like3">
+                                    <input type="checkbox" id="like3" value="like3">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
                             <div class="checkout__input__checkbox">
                                 <label for="like4">김치
-                                    <input type="checkbox" id="like4">
+                                    <input type="checkbox" id="like4" value="like4">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
                             <div class="checkout__input__checkbox">
                                 <label for="like5">비빔밥
-                                    <input type="checkbox" id="like5">
+                                    <input type="checkbox" id="like5" value="like5">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
                             <div class="checkout__input__checkbox">
                                 <label for="like6">잡채
-                                    <input type="checkbox" id="like6">
+                                    <input type="checkbox" id="like6" value="like6">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
                             <div class="checkout__input__checkbox">
                                 <label for="like7">갈비찜
-                                    <input type="checkbox" id="like7">
+                                    <input type="checkbox" id="like7" value="like7">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
                             <div class="checkout__input__checkbox">
                                 <label for="like8">떡볶이
-                                    <input type="checkbox" id="like8">
+                                    <input type="checkbox" id="like8" value="like8">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
@@ -444,52 +517,56 @@
                             </div>
                             <div class="checkout__input__checkbox">
                                 <label for="dislike1">된장
-                                    <input type="checkbox" id="dislike1">
+                                    <input type="checkbox" id="dislike1" value="dislike1">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
                             <div class="checkout__input__checkbox">
                                 <label for="dislike2">청국장
-                                    <input type="checkbox" id="dislike2">
+                                    <input type="checkbox" id="dislike2" value="dislike2">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
                             <div class="checkout__input__checkbox">
                                 <label for="dislike3">돼지고기
-                                    <input type="checkbox" id="dislike3">
+                                    <input type="checkbox" id="dislike3" value="dislike3">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
                             <div class="checkout__input__checkbox">
                                 <label for="dislike4">소고기
-                                    <input type="checkbox" id="dislike4">
+                                    <input type="checkbox" id="dislike4" value="dislike4">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
                             <div class="checkout__input__checkbox">
                                 <label for="dislike5">닭고기
-                                    <input type="checkbox" id="dislike5">
+                                    <input type="checkbox" id="dislike5" value="dislike5">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
                             <div class="checkout__input__checkbox">
                                 <label for="dislike6">오이
-                                    <input type="checkbox" id="dislike6">
+                                    <input type="checkbox" id="dislike6" value="dislike6">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
                             <div class="checkout__input__checkbox">
                                 <label for="dislike7">낙지
-                                    <input type="checkbox" id="dislike7">
+                                    <input type="checkbox" id="dislike7" value="dislike7">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
                             <div class="checkout__input__checkbox">
                                 <label for="dislike8">김치
-                                    <input type="checkbox" id="dislike8">
+                                    <input type="checkbox" id="dislike8" value="dislike8">
                                     <span class="checkmark"></span>
                                 </label>
-                            </div>
+                            </div> {% endcomment %}
+
+
+
+
                             <!-- <div class="checkout__input">
                                 <p>Order notes<span>*</span></p>
                                 <input type="text"
