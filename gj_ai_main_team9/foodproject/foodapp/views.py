@@ -4,7 +4,7 @@ from .models import User
 from .models import foodmodel
 from menufriend_algorithm import mf_main
 import csv
-
+import pandas as pd
 # Create your views here.
 
 
@@ -58,10 +58,37 @@ def login_view(request):
     
     
     df1 = pd.read_csv(r"C:\Users\opeer\here\here_1\AI SCHOOL\main\main_1\gj_ai_main_team9\menufriend\gj_ai_main_team9-min\mfd.csv", encoding = 'utf-8')
+    testing=df1.iloc[mf_main_10]
+    # testing2=testing[1]
+
+    # menu_1=df1.iloc[mf_main_10[0]]
+    # menu_1_1=df1.iloc[mf_main_10[0]][1]
+    # menu_2=df1.iloc[mf_main_10[1]]
+    # menu_3=df1.iloc[mf_main_10[2]]
+    # menu_4=df1.iloc[mf_main_10[3]]
+    # menu_5=df1.iloc[mf_main_10[4]]
+    # menu_6=df1.iloc[mf_main_10[5]]
+    # menu_7=df1.iloc[mf_main_10[6]]
+    # menu_8=df1.iloc[mf_main_10[7]]
+    # menu_9=df1.iloc[mf_main_10[8]]
+    # menu_10=df1.iloc[mf_main_10[9]]
+    #  # munu_1부터 선호도 높은음식 [1]부터 제목 /_1= 제목 _2 = 분류 _3=재료, _4= 재료,분류 _5=재료,분류 _6=조리법, 7=종류, 8=시간, 9=난이도
+    # menu_1_1 = menu_1[1]
+    # menu_2_1 = menu_2[1]
+    # menu_3_1 = menu_3[1]
+    # menu_4_1 = menu_4[1]
+    # menu_5_1 = menu_5[1]
+    # menu_6_1 = menu_6[1]
+    # menu_7_1 = menu_7[1]
+    # menu_8_1 = menu_8[1]
+    # menu_9_1 = menu_9[1]
+    # menu_10_1 = menu_10[1]
     
 
+
+
     
-    context = {'a_1':a_1, 'Users':Users, 'mf_main_10':mf_main_10, 'mf_main_10_0':mf_main_10[0], 'mf_main_10_1':mf_main_10[1], 'mf_main_10_2':mf_main_10[2], 'mf_main_10_3':mf_main_10[3], 'mf_main_10_4':mf_main_10[4], 'mf_main_10_5':mf_main_10[5], 'mf_main_10_6':mf_main_10[6], 'mf_main_10_7':mf_main_10[7], 'mf_main_10_8':mf_main_10[8], 'mf_main_10_9':mf_main_10[9]}
+    context = {'testing':testing,'Users':Users, 'mf_main_10':mf_main_10, 'mf_main_10_0':mf_main_10[0], 'mf_main_10_1':mf_main_10[1], 'mf_main_10_2':mf_main_10[2], 'mf_main_10_3':mf_main_10[3], 'mf_main_10_4':mf_main_10[4], 'mf_main_10_5':mf_main_10[5], 'mf_main_10_6':mf_main_10[6], 'mf_main_10_7':mf_main_10[7], 'mf_main_10_8':mf_main_10[8], 'mf_main_10_9':mf_main_10[9]}
     #'mf_main_10_0':mf_main_10[0], 'mf_main_10_1':mf_main_10[1], 'mf_main_10_2':mf_main_10[2], 'mf_main_10_3':mf_main_10[3], 'mf_main_10_4':mf_main_10[4], 'mf_main_10_5':mf_main_10[5], 'mf_main_10_6':mf_main_10[6], 'mf_main_10_7':mf_main_10[7], 'mf_main_10_8':mf_main_10[8], 'mf_main_10_9':mf_main_10[9]
 
 
