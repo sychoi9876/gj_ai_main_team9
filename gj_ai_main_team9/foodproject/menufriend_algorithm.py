@@ -72,7 +72,7 @@ def mf_main(is_1500,user_info,head,n):
   result_menu = []
   for idx in result:
     a = (df.loc[idx,'title'])
-    result_menu.append((a,idx))
+    result_menu.append(idx)
   return result_menu
 
   
