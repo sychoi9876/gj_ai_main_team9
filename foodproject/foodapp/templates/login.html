@@ -338,28 +338,11 @@
                     <td class="tg-0lax"></td>
                     <td class="tg-0lax"></td>
                 </tr>
-                {{a_1}}
                 <br>
-                {{ mf_main_10_0 }}
-                <br>
-                {{ mf_main_10_1 }}
-                <br>
-                {{ mf_main_10_2 }}
-                <br>
-                {{ mf_main_10_3 }}
-                <br>
-                {{ mf_main_10_4 }}
-                <br>
-                {{ mf_main_10_5 }}
-                <br>
-                {{ mf_main_10_6 }}
-                <br>
-                {{ mf_main_10_7 }}
-                <br>
-                {{ mf_main_10_8 }}
-                <br>
-                {{ mf_main_10_9 }}
-                <br>
+                {% for m in title %}
+                    <a href='' >{{m}}</a>
+                </br>
+                {% endfor %}
                 <!--
                 유저네임{{ user.username }}
                 <h1>기타:{{Users.기타}}</h1>

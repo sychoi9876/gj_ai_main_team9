@@ -59,8 +59,8 @@ def cosine_result(df, user_info, is_1500):
 
 def mf_main(is_1500,user_info,head,n): # 위에서 head 번째 부터 n개
   file_name = 'mfd.csv'
-  file_path = 'C:\\Users\\min\Desktop\\min-git\\menufriend\\' + file_name
-
+  # file_path = 'C:\\Users\\min\Desktop\\min-git\\menufriend\\' + file_name
+  file_path = './mfd.csv'
   if is_1500 == 1:  #1500이면 1 
     df = mf_1500_function(file_path)
   elif is_1500 == 0: # 33000이면 0
@@ -75,10 +75,10 @@ def mf_main(is_1500,user_info,head,n): # 위에서 head 번째 부터 n개
 
 user_1 = [{'견과류': 1, '곡물전분류':1, '기타': 1, '김치류': 1, '난류': 1, '면류': 3, '버섯류': 1, 
 '유제품': 1, '육류': 1, '조리가공품류': 1, '조미료': 1, '채소류': 3, '해산물': 3},[7390,18873,7512]]  # 최근에 먹은것부터 
-print(f'mf_1500{user_1[1]}:',mf_main(1,user_1,1,10))
+# print(f'mf_1500{user_1[1]}:',mf_main(1,user_1,1,10))
 user_2 = [{'견과류': 1, '곡물전분류':1, '기타': 1, '김치류': 1, '난류': 1, '면류': 1, '버섯류': 1, 
 '유제품': 1, '육류': 3, '조리가공품류': 1, '조미료': 1, '채소류': 3, '해산물': 1},[11478,31759,154]] # 
-print(f'mf_33000:{user_2[1]}',mf_main(0,user_2,1,10))
+# print(f'mf_33000:{user_2[1]}',mf_main(0,user_2,1,10))
 
 # user_0 , tfidf_mat = adjust_user
 # print(user0,tfidf_mat)
