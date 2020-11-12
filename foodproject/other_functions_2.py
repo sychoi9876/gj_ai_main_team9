@@ -57,8 +57,34 @@ def mf_33000_function(file_path_): # 모든 데이터 33000개를 DataFrame으�
     return df
 
 def find_ingre(pre_menu_idx): 
+  pre_menu_idx = int(pre_menu_idx)
   if pre_menu_idx >= 0:
-    df = mf_33000_function('./mfd.csv')
+    df = mf_33000_function('C:\\Users\\min\Desktop\\min-git\\menufriend\\foodproject\\mfd.csv')
     i = df.loc[pre_menu_idx].raw_ingre_sep.split(',')
     return i
   return -1
+
+def make_diet(origin_str,new_menu_idx,return_type):  # 문자열 , 정수 들어오면 
+  origin_list = []
+  new_menu_idx = int(new_menu_idx)
+  origin_str = str(origin_str)
+  if len(origin_str) == 0:   
+    origin_list.append(new_menu_idx)
+  else:
+    origin_list = origin_str.split(',')
+    origin_list = [int(items) for items in origin_list]
+    origin_list.append(new_menu_idx)
+    # origin_list = origin_list[len(origin_list)-7:]
+  if return_type == 'l':
+    return origin_list
+  else:
+    origin_list = [str(items) for items in origin_list]
+    origin_list = ','.join(origin_list)
+    return origin_list
+
+def menu_title_by_day(df,index):
+  index = int(index)
+  if index == -1:
+    return ''
+  return df.loc[index]
+
