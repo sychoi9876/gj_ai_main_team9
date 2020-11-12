@@ -350,11 +350,7 @@
                 </tr>
                 </section>
             </br>
-
-
-
-
-                {% comment %} {{Users.pk}} {% endcomment %}
+                Users.pk = {{Users.pk}}
 
                 <input type="hidden" name="Users_pk" value="{{Users.pk}}">
             {% comment %} </br>
@@ -376,10 +372,9 @@
         </br>
             <a href="{% url 'recipe_1' menu_index6 Users.pk %}" >{{title6}}  {{menu_index6}}</a>
             <input type="hidden" name="menu_index6" value="{{menu_index6}}">
-        </br> {% endcomment %}
-                {% for id in mf_main_10 %}
-                 {% comment %} {{id}} {% endcomment %}
-                {% endfor %}
+
+        </br>
+                </br>
                 
                 <!--
                 유저네임{{ user.username }}

@@ -348,19 +348,15 @@
                     <td class="tg-0lax">{{day_sat}}</td></br>
                 </tr>
             </br>
-            {% comment %} pk:{{Users.pk}} {% endcomment %}
+
+            <!-- pk:{{Users.pk}} -->
         </br>
-        {% comment %} 곡물:{{Users.곡물전분류}} {% endcomment %}
+        <!-- 곡물:{{Users.곡물전분류}} -->
     </br>
 </br>
-                {% comment %} 육류:{{Users.육류}} {% endcomment %}
-
-
-
-
-                
+                <!-- 육류:{{Users.육류}} -->
                 <input type="hidden" name="Users_pk" value="{{Users.pk}}">
-            
+            {% if n == -1 %}
             </br>
                    
             {% comment %} <a href="{% url 'recipe_1' menu_index1 Users.pk %}" >{{title1}}  {{menu_index1}}</a>
@@ -380,7 +376,12 @@
         </br>
             <a href="{% url 'recipe_1' menu_index6 Users.pk %}" >{{title6}}  {{menu_index6}}</a>
             <input type="hidden" name="menu_index6" value="{{menu_index6}}">
-        </br> {% endcomment %}
+
+        </br>
+        {% endif %}
+            {% if n != -1 %}
+            <a href="{% url 'pay' Users.pk %}" >결제 하러 가기 ></a>
+            {% endif %}
                 
                 <!--
                 유저네임{{ user.username }}
