@@ -23,7 +23,6 @@
     <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
 </head>
-
 <body>
     <!-- Page Preloder -->
     <div id="preloder">
@@ -180,67 +179,6 @@
     </header>
     <!-- Header Section End -->
 
-    <!-- Hero Section Begin -->
-    <!-- <section class="hero">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="hero__categories">
-                        <div class="hero__categories__all">
-                            <i class="fa fa-bars"></i>
-                            <span>All departments</span>
-                        </div>
-                        <ul>
-                            <li><a href="#">Fresh Meat</a></li>
-                            <li><a href="#">Vegetables</a></li>
-                            <li><a href="#">Fruit & Nut Gifts</a></li>
-                            <li><a href="#">Fresh Berries</a></li>
-                            <li><a href="#">Ocean Foods</a></li>
-                            <li><a href="#">Butter & Eggs</a></li>
-                            <li><a href="#">Fastfood</a></li>
-                            <li><a href="#">Fresh Onion</a></li>
-                            <li><a href="#">Papayaya & Crisps</a></li>
-                            <li><a href="#">Oatmeal</a></li>
-                            <li><a href="#">Fresh Bananas</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="hero__search">
-                        <div class="hero__search__form">
-                            <form action="#">
-                                <div class="hero__search__categories">
-                                    All Categories
-                                    <span class="arrow_carrot-down"></span>
-                                </div>
-                                <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
-                            </form>
-                        </div>
-                        <div class="hero__search__phone">
-                            <div class="hero__search__phone__icon">
-                                <i class="fa fa-phone"></i>
-                            </div>
-                            <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
-                                <span>support 24/7 time</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">
-                        <div class="hero__text">
-                            <span>FRUIT FRESH</span>
-                            <h2>Vegetable <br />100% Organic</h2>
-                            <p>Free Pickup and Delivery Available</p>
-                            <a href="#" class="primary-btn">SHOP NOW</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <!-- Hero Section End -->
-
     <!-- Breadcrumb Section Begin -->
     {% if user.is_authenticated %}
     <section class="breadcrumb-section set-bg" data-setbg="/static/img/breadcrumb.jpg">
@@ -248,7 +186,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>추천메뉴</h2>
+                        <h2>결제 페이지</h2>
                         <!-- <div class="breadcrumb__option">
                             <a href="./index.html">Home</a>
                             <span>회원가입</span>
@@ -278,198 +216,24 @@
     {% endif %}
     <!-- Breadcrumb Section End -->
 
-{% comment %} 주석처리 {% endcomment %}
-    <!-- Checkout Section Begin -->
-    {% comment %} <section class="checkout spad"> {% endcomment %}
-        {% comment %} <div class="container"> {% endcomment %}
-            <!-- <div class="row">
-                <div class="col-lg-12">
-                    <h6><span class="icon_tag_alt"></span> Have a coupon? <a href="#">Click here</a> to enter your code
-                    </h6>
-                </div>
-            </div> -->
 
-            {% comment %} <div class="col-lg-8 col-md-7"> {% endcomment %}
-                {% comment %} <div class="row"> {% endcomment %}
-                    {% comment %} <div class="col-lg-6 col-md-6 col-sm-6"> {% endcomment %}
-                        {% comment %} <div class="blog__item"> {% endcomment %}
-                            {% comment %} <div class="blog__item__text"> {% endcomment %}
-                                {% comment %} <ul>
-                                    <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                    <li><i class="fa fa-comment-o"></i> 5</li>
-                                </ul> {% endcomment %}
-                                {% comment %} <h4><div class="recipe_title">{{title}}</div></h4> {% endcomment %}
-                                {% comment %} <br> {% endcomment %}
-                                {% comment %} <script>
-                                jQuery( document ).ready( function( $ ) {
-                                    // code ...
-                                    $.ajax({
-                                        url: '../static/csv_data.csv',
-                                        dataType: 'text',
-                                    }).done(successFunction);
-                                    function successFunction(data) {
-                                        var allRows = data.split(/\r?\n|\r/);
-                                        var table = '<table>';
-                                        for (var singleRow = 0; singleRow < allRows.length; singleRow++) {
-                                            if (singleRow === 0) {
-                                            table += '<thead>';
-                                            table += '<tr>';
-                                            } else {
-                                            table += '<tr>';
-                                            }
-                                            var rowCells = allRows[singleRow].split(',');
-                                            for (var rowCell = 0; rowCell < rowCells.length; rowCell++) {
-                                            if (singleRow === 0) {
-                                                table += '<th>';
-                                                table += rowCells[rowCell];
-                                                table += '</th>';
-                                            } else {
-                                                table += '<td>';
-                                                table += rowCells[rowCell];
-                                                table += '</td>';
-                                            }
-                                            }
-                                            if (singleRow === 0) {
-                                            table += '</tr>';
-                                            table += '</thead>';
-                                            table += '<tbody>';
-                                            } else {
-                                            table += '</tr>';
-                                            }
-                                        } 
-                                        table += '</tbody>';
-                                        table += '</table>';
-                                        $('body').append(table);
-                                    }            
-                                } );
-                                </script> {% endcomment %}
-                                {% comment %} <h5><a href="#">6 ways to prepare breakfast for 30</a></h5> {% endcomment %}
-                                {% comment %} <h5><div class="kcal"><span>kcal: </span>594</div></h5> {% endcomment %}
-                                {% comment %} <br>
-                                <h5><div class="main_ingredients"><span>재료: </span>{{ingre}}</div></h5>
-                                <br>
-                                <h5><div class="steps"><span>조리순서: </span>{{step}}</div></h5>
-                            </br>
-                            <a href="{% url 'recommend' Users_pk %}">뒤로</a>
-                                <form method="POST" action="{% url 'recommend' Users_pk %}">
-                                    {% csrf_token %}
-                                <button type="submit">선택</button>
-                                {{menu_index}}
-                                <input type="hidden" name="Users_pk" value="{{Users_pk}}">
-                                <input type="hidden" name="menu_index" value="{{menu_index}}">
-                            </form> {% endcomment %}
-                                {% comment %} <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam
-                                    quaerat </p> {% endcomment %}
-                                {% comment %} <a href="#" class="blog__btn">READ MORE <span class="arrow_right"></span></a> {% endcomment %}
-                            {% comment %} </div> {% endcomment %}
-                        {% comment %} </div> {% endcomment %}
-                    {% comment %} </div> {% endcomment %}
-                    {% comment %} <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="blog__item">
-                            <div class="blog__item__pic">
-                                <img src="img/blog/blog-3.jpg" alt="">
-                            </div>
-                            <div class="blog__item__text">
-                                <ul>
-                                    <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                    <li><i class="fa fa-comment-o"></i> 5</li>
-                                </ul>
-                                <h5><a href="#">Visit the clean farm in the US</a></h5>
-                                <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam
-                                    quaerat </p>
-                                <a href="#" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="blog__item">
-                            <div class="blog__item__pic">
-                                <img src="img/blog/blog-1.jpg" alt="">
-                            </div>
-                            <div class="blog__item__text">
-                                <ul>
-                                    <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                    <li><i class="fa fa-comment-o"></i> 5</li>
-                                </ul>
-                                <h5><a href="#">Cooking tips make cooking simple</a></h5>
-                                <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam
-                                    quaerat </p>
-                                <a href="#" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="blog__item">
-                            <div class="blog__item__pic">
-                                <img src="img/blog/blog-4.jpg" alt="">
-                            </div>
-                            <div class="blog__item__text">
-                                <ul>
-                                    <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                    <li><i class="fa fa-comment-o"></i> 5</li>
-                                </ul>
-                                <h5><a href="#">Cooking tips make cooking simple</a></h5>
-                                <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam
-                                    quaerat </p>
-                                <a href="#" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="blog__item">
-                            <div class="blog__item__pic">
-                                <img src="img/blog/blog-4.jpg" alt="">
-                            </div>
-                            <div class="blog__item__text">
-                                <ul>
-                                    <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                    <li><i class="fa fa-comment-o"></i> 5</li>
-                                </ul>
-                                <h5><a href="#">The Moment You Need To Remove Garlic From The Menu</a></h5>
-                                <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam
-                                    quaerat </p>
-                                <a href="#" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="blog__item">
-                            <div class="blog__item__pic">
-                                <img src="img/blog/blog-6.jpg" alt="">
-                            </div>
-                            <div class="blog__item__text">
-                                <ul>
-                                    <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                    <li><i class="fa fa-comment-o"></i> 5</li>
-                                </ul>
-                                <h5><a href="#">Cooking tips make cooking simple</a></h5>
-                                <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam
-                                    quaerat </p>
-                                <a href="#" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
-                            </div>
-                        </div> {% endcomment %}
-                    {% comment %} </div> {% endcomment %}
-                    {% comment %} <div class="col-lg-12">
-                        <div class="product__pagination blog__pagination">
-                            <a href="#">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#"><i class="fa fa-long-arrow-right"></i></a>
-                        </div>
-                    </div> {% endcomment %}
-                {% comment %} </div> {% endcomment %}
-            {% comment %} </div> {% endcomment %}
-        {% comment %} </div> {% endcomment %}
-    {% comment %} </section> {% endcomment %}
-    <!-- Checkout Section End -->
-            <!-- Related Blog Section Begin -->
+{% comment %} <h1>결제 페이지 입니다</h1>
+</br>
+내역
+</br>
+{% for i in hist_list %}
+ {{i}}
+</br>
+{% endfor %} {% endcomment %}
+
+
                 <section class="related-blog spad">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="section-title related-blog-title">
                                     <img src="/static/img/c.png" alt="meal">
-                                    <h2><div class="recipe_title">{{title}}</div></h2>
+                                    <h2><div class="recipe_title">일주일 식단 선택 내역</div></h2>
                                 </div>
                             </div>
                         </div>
@@ -485,30 +249,21 @@
                                             <li><i class="fa fa-comment-o"></i> 5</li>
                                         </ul> {% endcomment %}
                                         <h5>
-                                            <div class="site-btn">재료</div><br><br>
-                                            <div class="main_ingredients">{{ingre}}</div>
-                                            <br><br>
-                                            <div class="site-btn">조리순서</div><br><br>
-                                            <div class="steps">{{step}}</div>
-                                            <br><br>
+                                            <br>
+                                            {% for i in hist_list %}
+                                            {{i}}
+                                            </br>
+                                            {% endfor %}
                                         </h5>
-                                            <a href="{% url 'recommend' Users_pk %}" class="blog__btn">뒤로</a>
-                                        <form method="POST" action="{% url 'recommend' Users_pk %}">
-                                            {% csrf_token %}
-                                        <button type="submit" class="blog__btn">선택</button>
-                                        {% comment %} {{menu_index}} {% endcomment %}
-                                        <input type="hidden" name="Users_pk" value="{{Users_pk}}">
-                                        <input type="hidden" name="menu_index" value="{{menu_index}}">
-                                        </form>
 
                                         {% comment %} <a href="#" class="blog__btn">READ MORE <span class="arrow_right"></span></a> {% endcomment %}
                                         {% comment %} <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p> {% endcomment %}
+                                    
                                     </div>
                                 </div>
                             </div>
                     </div>
                 </section>
-                <!-- Related Blog Section End -->
 
     <!-- Footer Section Begin -->
     <footer class="footer spad">
@@ -588,9 +343,6 @@
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
 
- 
 
 </body>
-
 </html>
-

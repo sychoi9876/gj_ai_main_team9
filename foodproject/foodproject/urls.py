@@ -31,4 +31,5 @@ urlpatterns = [
     path('recipe_4/', views.recipe_4, name='recipe_4'),
     path('recipe_5/', views.recipe_5, name='recipe_5'),
     path('recommend/<int:User_pk>', views.recommend, name='recommend'),
+    path('pay/<int:User_pk>', views.pay, name='pay'),
 ]

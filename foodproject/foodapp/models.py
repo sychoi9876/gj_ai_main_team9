@@ -24,8 +24,8 @@ class User(AbstractUser):
 
 class user_history(models.Model):
     user_num = models.IntegerField(default=-1)
-    food_1 = models.CharField(max_length=200,default='f')
-    food_2 = models.IntegerField(default=-1)
+    food_1 = models.CharField(max_length=500,default='f')
+    food_2 = models.CharField(max_length=500,default='-1')
     food_3 = models.IntegerField(default=-1)
     food_4 = models.IntegerField(default=-1)
     food_5 = models.IntegerField(default=-1)
