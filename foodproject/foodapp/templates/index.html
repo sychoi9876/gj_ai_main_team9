@@ -158,6 +158,7 @@
                             </li>
                             <li><a href="./blog.html">Blog</a></li> {% endcomment %}
                             {% if user.is_authenticated %}
+                            <input type="hidden" name="Users_pk" value="{{Users.pk}}">
                             <li><a href="{% url 'login' %}">추천메뉴</a></li>
                             <li><a href="{% url 'logout' %}">로그아웃</a></li>
                             {% else %}
@@ -306,7 +307,7 @@
                 <div class="categories__slider owl-carousel">
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="https://recipe1.ezmember.co.kr/cache/recipe/2015/05/05/f898a7e9e03e179c2c6b7ad65fd946321.jpg">
-                            <h5><a href="{% url 'recipe_1' %}">차돌박이 파스타</a></h5>
+                            <h5><a href="{% url 'recipe_2' %}">차돌박이 파스타</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">

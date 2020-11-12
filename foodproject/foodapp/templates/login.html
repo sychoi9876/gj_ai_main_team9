@@ -154,7 +154,7 @@
                             </li>
                             <li><a href="./blog.html">Blog</a></li> {% endcomment %}
                             {% if user.is_authenticated %}
-                            <li><a href="{% url 'login' %}">추천메뉴</a></li>
+                            <li><a href="{% url 'recommend' Users.pk %}">추천메뉴</a></li>
                             <li><a href="{% url 'logout' %}">로그아웃</a></li>
                             {% else %}
                             <li><a href="{% url 'signup' %}">회원가입</a></li>
@@ -338,11 +338,35 @@
                     <td class="tg-0lax"></td>
                     <td class="tg-0lax"></td>
                 </tr>
-                <br>
-                {% for m in title %}
-                    <a href='' >{{m}}</a>
+            </br>
+                {{Users.pk}}
+
+                <input type="hidden" name="Users_pk" value="{{Users.pk}}">
+            </br>
+                
+            <a href="{% url 'recipe_1' menu_index1 Users.pk %}" >{{title1}}  {{menu_index1}}</a>
+            <input type="hidden" name="menu_index1" value="{{menu_index1}}">
+        </br>
+            <a href="{% url 'recipe_1' menu_index2 Users.pk %}" >{{title2}}  {{menu_index2}}</a>
+            <input type="hidden" name="menu_index2" value="{{menu_index2}}">
+        </br>
+            <a href="{% url 'recipe_1' menu_index3 Users.pk %}" >{{title3}}  {{menu_index3}}</a>
+            <input type="hidden" name="menu_index3" value="{{menu_index3}}">
+        </br>
+            <a href="{% url 'recipe_1' menu_index4 Users.pk %}" >{{title4}}  {{menu_index4}}</a>
+            <input type="hidden" name="menu_index4" value="{{menu_index4}}">
+        </br>
+            <a href="{% url 'recipe_1' menu_index5 Users.pk %}" >{{title5}}  {{menu_index5}}</a>
+            <input type="hidden" name="menu_index5" value="{{menu_index5}}">
+        </br>
+            <a href="{% url 'recipe_1' menu_index6 Users.pk %}" >{{title6}}  {{menu_index6}}</a>
+            <input type="hidden" name="menu_index6" value="{{menu_index6}}">
+        </br>
                 </br>
+                {% for id in mf_main_10 %}
+                 {{id}}
                 {% endfor %}
+                
                 <!--
                 유저네임{{ user.username }}
                 <h1>기타:{{Users.기타}}</h1>

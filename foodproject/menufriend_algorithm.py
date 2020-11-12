@@ -5,7 +5,22 @@ import pandas as pd
 import numpy as np
 import math
 ####my branch
+def adjust_history(input_value):
+  if type(input_value)==type('1'):
+    list_ = input_value.split(',')
+  elif type(input_value) == type(1):
+    list_ = [input_value]
+  else:
+    list_ = input_value[:]
+  list_ = [int(item) for item in list_]
+  new_list = []
+  for it in list_:
+    if it != -1:
+      new_list.append(it)  
+  return new_list[-1:-4:-1]
+  
 def adjust_user(user_info): 
+  user_info[1] = adjust_history(user_info[1])
   weight_by_date = [0.01,     0.1,    0.7]
   user = [[[100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], [[0, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], [[0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], [[0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0]], [[0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 0]], [[0, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0]], [[0, 0, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0]], [[0, 0, 0, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0]], [[0, 0, 0, 0, 0, 0, 0, 0, 100, 0, 0, 0, 0]], [[0, 0, 0, 0, 0, 0, 0, 0, 0, 100, 0, 0, 0]], [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 100, 0, 0]], [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 100, 0]], [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 100]]]
   if len(user_info[1]) <= 0:
@@ -59,8 +74,8 @@ def cosine_result(df, user_info, is_1500):
 
 def mf_main(is_1500,user_info,head,n): # 위에서 head 번째 부터 n개
   file_name = 'mfd.csv'
-  # file_path = 'C:\\Users\\min\Desktop\\min-git\\menufriend\\' + file_name
-  file_path = './mfd.csv'
+  file_path = 'C:\\Users\\min\Desktop\\min-git\\menufriend\\foodproject\\' + file_name
+  # file_path = './mfd.csv'
   if is_1500 == 1:  #1500이면 1 
     df = mf_1500_function(file_path)
   elif is_1500 == 0: # 33000이면 0
@@ -68,16 +83,19 @@ def mf_main(is_1500,user_info,head,n): # 위에서 head 번째 부터 n개
   result = cosine_result(df,user_info,is_1500)
   result = result[head-1:head+n-1]
   result_menu = []
+  print_result_menu = []
   for idx in result:
-    # a = (df.loc[idx,'title'])
     result_menu.append(idx)
+  # a = (df.loc[idx,'title'])
+  # print_result_menu.append([idx,a])
+  # print(print_result_menu)
   return result_menu
 
-user_1 = [{'견과류': 1, '곡물전분류':1, '기타': 1, '김치류': 1, '난류': 1, '면류': 3, '버섯류': 1, 
-'유제품': 1, '육류': 1, '조리가공품류': 1, '조미료': 1, '채소류': 3, '해산물': 3},[7390,18873,7512]]  # 최근에 먹은것부터 
+# user_1 = [{'견과류': 1, '곡물전분류':1, '기타': 1, '김치류': 1, '난류': 1, '면류': 1, '버섯류': 1, 
+# '유제품': 1, '육류': 1, '조리가공품류': 1, '조미료': 1, '채소류': 1, '해산물': 1},[]]  # 최근에 먹은것부터 
 # print(f'mf_1500{user_1[1]}:',mf_main(1,user_1,1,10))
-user_2 = [{'견과류': 1, '곡물전분류':1, '기타': 1, '김치류': 1, '난류': 1, '면류': 1, '버섯류': 1, 
-'유제품': 1, '육류': 3, '조리가공품류': 1, '조미료': 1, '채소류': 3, '해산물': 1},[11478,31759,154]] # 
+# user_2 = [{'견과류': 1, '곡물전분류':1, '기타': 1, '김치류': 1, '난류': 1, '면류': 1, '버섯류': 1, 
+# '유제품': 1, '육류': 3, '조리가공품류': 1, '조미료': 1, '채소류': 3, '해산물': 1},'1'] # 
 # print(f'mf_33000:{user_2[1]}',mf_main(0,user_2,1,10))
 
 # user_0 , tfidf_mat = adjust_user
