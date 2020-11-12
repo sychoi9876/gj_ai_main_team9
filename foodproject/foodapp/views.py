@@ -197,12 +197,14 @@ def recommend(request,User_pk):
     if request.method == "POST":
         selected_menu = request.POST["menu_index"]
         recent_history = make_diet(hist.food_1,selected_menu,'s')
-        user_history.objects.update(food_1=recent_history)
-        hist = user_history.objects.get(user_num=User_pk)
+        user_history.objects.filter(user_num=User_pk).update(
+            food_1=recent_history
+            )
+    hist = user_history.objects.get(user_num=User_pk)
     day_list = hist.food_1.split(',')
     user_hist = day_list[-1:-4:-1]
-    print(user_hist)
-    print('1',day_list)
+    print('user_info[1]:',user_hist)
+    print('user in db:',day_list)
     day_list = [int(item) for item in day_list[1:]]
     # print('2',day_list)
     # day_list = day_list[-1:len(day_list)-8:-1]
@@ -218,9 +220,9 @@ def recommend(request,User_pk):
     day_thu = menu_title_by_day(df1,day_list[4])
     day_fri = menu_title_by_day(df1,day_list[5])
     day_sat = menu_title_by_day(df1,day_list[6])
-    print('4',day_list)
+    print('recent 7days:',day_list)
     print(day_sun,day_mon,day_tue,day_wed,day_thu,day_fri,day_sat)
-
+    n = day_list[6]
     Users_1 = Users.견과류
     Users_1 = float(Users_1)
     Users_2 = Users.곡물전분류
@@ -264,7 +266,7 @@ def recommend(request,User_pk):
     title5 = df1.loc[mf_main_10[4]]
     menu_index6 = mf_main_10[5]
     title6 = df1.loc[mf_main_10[5]]
-    context = {'Users':Users,
+    context = {'Users':Users,'n':n,
     'menu_index1':menu_index1,'menu_index2':menu_index2,'menu_index3':menu_index3,
     'menu_index4':menu_index4,'menu_index5':menu_index5,'menu_index6':menu_index6,
     'title1':title1,'title2':title2,'title3':title3,'title4':title4,'title5':title5,'title6':title6,'hist':hist,
@@ -272,6 +274,23 @@ def recommend(request,User_pk):
     # if Users.is_authenticated:
     #     print(Users.is_authenticated)
     return render(request,'recommend.html',context)
+
+def pay(request,User_pk):
+    df = pd.read_csv("./mfd.csv", encoding = 'utf-8')
+    df1 = df.loc[:,'title']
+    hist = user_history.objects.get(user_num=User_pk)
+    hist_list_ = hist.food_1.split(',')
+    hist_list_ = hist_list_[len(hist_list_)-7:]
+    hist_list=[]
+    for hist_idx in hist_list_:
+        hist_idx = int(hist_idx)
+        hist_list.append(df1.loc[hist_idx])
+    a = hist.food_1
+    user_history.objects.filter(user_num=User_pk).update(
+        food_1='-1',food_2=a,
+        )
+    context = {'history':hist.food_1,'hist_list':hist_list}
+    return render(request,'pay.html',context)
 
 
 
