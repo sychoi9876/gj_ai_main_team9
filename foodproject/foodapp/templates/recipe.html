@@ -154,7 +154,7 @@
                             </li>
                             <li><a href="./blog.html">Blog</a></li> {% endcomment %}
                             {% if user.is_authenticated %}
-                            <li><a href="{% url 'index' %}">추천메뉴</a></li>
+                            <li><a href="{% url 'login' %}">추천메뉴</a></li>
                             <li><a href="{% url 'logout' %}">로그아웃</a></li>
                             {% else %}
                             <li><a href="{% url 'signup' %}">회원가입</a></li>
@@ -265,7 +265,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        {% comment %} <h2>로그인</h2> {% endcomment %}
+                        <h2>로그인</h2>
                         <!-- <div class="breadcrumb__option">
                             <a href="./index.html">Home</a>
                             <span>회원가입</span>
@@ -278,10 +278,9 @@
     {% endif %}
     <!-- Breadcrumb Section End -->
 
-{% comment %} 주석처리 {% endcomment %}
     <!-- Checkout Section Begin -->
-    {% comment %} <section class="checkout spad"> {% endcomment %}
-        {% comment %} <div class="container"> {% endcomment %}
+    <section class="checkout spad">
+        <div class="container">
             <!-- <div class="row">
                 <div class="col-lg-12">
                     <h6><span class="icon_tag_alt"></span> Have a coupon? <a href="#">Click here</a> to enter your code
@@ -289,81 +288,36 @@
                 </div>
             </div> -->
 
-            {% comment %} <div class="col-lg-8 col-md-7"> {% endcomment %}
-                {% comment %} <div class="row"> {% endcomment %}
-                    {% comment %} <div class="col-lg-6 col-md-6 col-sm-6"> {% endcomment %}
-                        {% comment %} <div class="blog__item"> {% endcomment %}
-                            {% comment %} <div class="blog__item__text"> {% endcomment %}
+            <div class="col-lg-8 col-md-7">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="blog__item">
+                            <div class="blog__item__pic">
+                                <img src="https://recipe1.ezmember.co.kr/cache/recipe/2020/05/26/e36b183d83e67dc42c6247b5f00b38be1.jpg" alt="">
+                            </div>
+                            <div class="blog__item__text">
                                 {% comment %} <ul>
                                     <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
                                     <li><i class="fa fa-comment-o"></i> 5</li>
                                 </ul> {% endcomment %}
-                                {% comment %} <h4><div class="recipe_title">{{title}}</div></h4> {% endcomment %}
-                                {% comment %} <br> {% endcomment %}
-                                {% comment %} <script>
-                                jQuery( document ).ready( function( $ ) {
-                                    // code ...
-                                    $.ajax({
-                                        url: '../static/csv_data.csv',
-                                        dataType: 'text',
-                                    }).done(successFunction);
-                                    function successFunction(data) {
-                                        var allRows = data.split(/\r?\n|\r/);
-                                        var table = '<table>';
-                                        for (var singleRow = 0; singleRow < allRows.length; singleRow++) {
-                                            if (singleRow === 0) {
-                                            table += '<thead>';
-                                            table += '<tr>';
-                                            } else {
-                                            table += '<tr>';
-                                            }
-                                            var rowCells = allRows[singleRow].split(',');
-                                            for (var rowCell = 0; rowCell < rowCells.length; rowCell++) {
-                                            if (singleRow === 0) {
-                                                table += '<th>';
-                                                table += rowCells[rowCell];
-                                                table += '</th>';
-                                            } else {
-                                                table += '<td>';
-                                                table += rowCells[rowCell];
-                                                table += '</td>';
-                                            }
-                                            }
-                                            if (singleRow === 0) {
-                                            table += '</tr>';
-                                            table += '</thead>';
-                                            table += '<tbody>';
-                                            } else {
-                                            table += '</tr>';
-                                            }
-                                        } 
-                                        table += '</tbody>';
-                                        table += '</table>';
-                                        $('body').append(table);
-                                    }            
-                                } );
-                                </script> {% endcomment %}
-                                {% comment %} <h5><a href="#">6 ways to prepare breakfast for 30</a></h5> {% endcomment %}
-                                {% comment %} <h5><div class="kcal"><span>kcal: </span>594</div></h5> {% endcomment %}
-                                {% comment %} <br>
-                                <h5><div class="main_ingredients"><span>재료: </span>{{ingre}}</div></h5>
+                                <h4><div class="recipe_title">{{ menu_1_1 }}</div></h4>
                                 <br>
-                                <h5><div class="steps"><span>조리순서: </span>{{step}}</div></h5>
-                            </br>
-                            <a href="{% url 'recommend' Users_pk %}">뒤로</a>
-                                <form method="POST" action="{% url 'recommend' Users_pk %}">
-                                    {% csrf_token %}
-                                <button type="submit">선택</button>
-                                {{menu_index}}
-                                <input type="hidden" name="Users_pk" value="{{Users_pk}}">
-                                <input type="hidden" name="menu_index" value="{{menu_index}}">
-                            </form> {% endcomment %}
+                                {% comment %} <h5><a href="#">6 ways to prepare breakfast for 30</a></h5> {% endcomment %}
+                                <h5><div class="method_type"><span>방법별 분류: </span>볶음</div></h5>
+                                <h5><div class="cook_time"><span>조리시간: </span>20분 이내</div></h5>
+                                <h5><div class="kcal"><span>kcal: </span>594</div></h5>
+                                <br>
+                                <h5><div class="main_ingredients"><span>주요재료: </span>'채소류': '통마늘', '견과류': '아몬드'</div></h5>
+                                <h5><div class="ingredients"><span>부재료: </span>'조미료': '식용유,간장,물엿', '기타': '물'</div></h5>
+                                <br>
+                                <h5><div class="steps"><span>조리순서: </span>1.먼저 깐 마늘은 물로 한번 헹구어 주시구요. 마늘이 너무 크다면 먹기좋게 반쪽으로 나눠 주세요,2.달궈진 팬에 식용유를 둘러 준 뒤 마늘을 넣고 튀기듯 노릇노릇 구워 줍니다. 굽다보면 마늘의 알싸한 향이 올라와 군침돌아요,3.마늘이 노릇노릇 구워지면 아몬드도 넣고 살짝 볶아줍니다아몬드 없으심 호두를 넣어주셔도 되고 그것도 없으시면 마늘만 넣고 만드셔도 되요,4.다 볶아지면 미리 준비해둔 양념을 부어 약불에서 타지 않게 조려주심 끝^^,5.정말 간단하게 만든 건강반찬 마늘아몬드 조림 완성이에요,6.물엿이 들어가서인지 윤기가 좌르르 흘러요.한번 먹어보니 알싸한 맛이 하나도 없고 정말 부드러우면서 맛있네요, 간장과 물엿의 양념들이 어우러져 단짠단짠한 맛이 밥과 함께 먹으면 참 맛있어요, 몸에 좋은 마늘과 아몬드의 조합이라 우리집 최애반찬으로 추천합니다^^암환자분들 항암반찬으로도 좋습니다.</div></h5>
+
                                 {% comment %} <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam
                                     quaerat </p> {% endcomment %}
                                 {% comment %} <a href="#" class="blog__btn">READ MORE <span class="arrow_right"></span></a> {% endcomment %}
-                            {% comment %} </div> {% endcomment %}
-                        {% comment %} </div> {% endcomment %}
-                    {% comment %} </div> {% endcomment %}
+                            </div>
+                        </div>
+                    </div>
                     {% comment %} <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="blog__item">
                             <div class="blog__item__pic">
@@ -448,64 +402,20 @@
                                 <a href="#" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
                             </div>
                         </div> {% endcomment %}
-                    {% comment %} </div> {% endcomment %}
-                    {% comment %} <div class="col-lg-12">
+                    </div>
+                    <div class="col-lg-12">
                         <div class="product__pagination blog__pagination">
                             <a href="#">1</a>
                             <a href="#">2</a>
                             <a href="#">3</a>
                             <a href="#"><i class="fa fa-long-arrow-right"></i></a>
                         </div>
-                    </div> {% endcomment %}
-                {% comment %} </div> {% endcomment %}
-            {% comment %} </div> {% endcomment %}
-        {% comment %} </div> {% endcomment %}
-    {% comment %} </section> {% endcomment %}
-    <!-- Checkout Section End -->
-            <!-- Related Blog Section Begin -->
-                <section class="related-blog spad">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="section-title related-blog-title">
-                                    <img src="/static/img/요리사.png" alt="meal">
-                                    <h2><div class="recipe_title">{{title}}</div></h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="">
-                                <div class="blog__item">
-                                    <div class="blog__item__pic">
-                                        {% comment %} <img src="img/blog/blog-1.jpg" alt=""> {% endcomment %}
-                                    </div>
-                                    <div class="blog__item__text">
-                                        {% comment %} <ul>
-                                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                            <li><i class="fa fa-comment-o"></i> 5</li>
-                                        </ul> {% endcomment %}
-                                        <h5>
-                                            <div class="main_ingredients"><span>재료: </span>{{ingre}}</div>
-                                            <br>
-                                            <div class="steps"><span>조리순서: </span>{{step}}</div>
-                                        </h5>
-                                            <a href="{% url 'recommend' Users_pk %}" class="blog__btn">뒤로</a>
-                                        <form method="POST" action="{% url 'recommend' Users_pk %}">
-                                            {% csrf_token %}
-                                        <button type="submit" class="blog__btn">선택</button>
-                                        {% comment %} {{menu_index}} {% endcomment %}
-                                        <input type="hidden" name="Users_pk" value="{{Users_pk}}">
-                                        <input type="hidden" name="menu_index" value="{{menu_index}}">
-                                        </form>
-
-                                        {% comment %} <a href="#" class="blog__btn">READ MORE <span class="arrow_right"></span></a> {% endcomment %}
-                                        {% comment %} <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p> {% endcomment %}
-                                    </div>
-                                </div>
-                            </div>
                     </div>
-                </section>
-                <!-- Related Blog Section End -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Checkout Section End -->
 
     <!-- Footer Section Begin -->
     <footer class="footer spad">
