@@ -468,7 +468,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="section-title related-blog-title">
-                                    <img src="/static/img/요리사.png" alt="meal">
+                                    <img src="/static/img/c.png" alt="meal">
                                     <h2><div class="recipe_title">{{title}}</div></h2>
                                 </div>
                             </div>
@@ -485,9 +485,12 @@
                                             <li><i class="fa fa-comment-o"></i> 5</li>
                                         </ul> {% endcomment %}
                                         <h5>
-                                            <div class="main_ingredients"><span>재료: </span>{{ingre}}</div>
-                                            <br>
-                                            <div class="steps"><span>조리순서: </span>{{step}}</div>
+                                            <div class="site-btn">재료</div><br><br>
+                                            <div class="main_ingredients">{{ingre}}</div>
+                                            <br><br>
+                                            <div class="site-btn">조리순서</div><br><br>
+                                            <div class="steps">{{step}}</div>
+                                            <br><br>
                                         </h5>
                                             <a href="{% url 'recommend' Users_pk %}" class="blog__btn">뒤로</a>
                                         <form method="POST" action="{% url 'recommend' Users_pk %}">

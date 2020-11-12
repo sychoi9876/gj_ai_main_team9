@@ -8,7 +8,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>메뉴친구 | 로그인</title>
+    <title>메뉴친구</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -350,7 +350,12 @@
                 </tr>
                 </section>
             </br>
-                Users.pk = {{Users.pk}}
+
+
+
+
+                {% comment %} {{Users.pk}} {% endcomment %}
+                {% comment %} Users.pk = {{Users.pk}} {% endcomment %}
 
                 <input type="hidden" name="Users_pk" value="{{Users.pk}}">
             {% comment %} </br>
@@ -372,7 +377,10 @@
         </br>
             <a href="{% url 'recipe_1' menu_index6 Users.pk %}" >{{title6}}  {{menu_index6}}</a>
             <input type="hidden" name="menu_index6" value="{{menu_index6}}">
-
+        </br> {% endcomment %}
+                {% for id in mf_main_10 %}
+                 {% comment %} {{id}} {% endcomment %}
+                {% endfor %}
         </br>
                 </br>
                 
