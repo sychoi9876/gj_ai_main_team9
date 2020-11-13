@@ -118,10 +118,6 @@ def signup(request):
             채소류 = request.POST["채소류"]
             해산물 = request.POST["해산물"]
             견과류 = request.POST["견과류"]
-            조미료 = request.POST["조미료"]
-            기타 = request.POST["기타"]
-
-
 
 
             user = User.objects.create_user(username, email, password)
@@ -140,8 +136,8 @@ def signup(request):
             user.조리가공품류 = 조리가공품류
             user.채소류 = 채소류
             user.해산물 = 해산물
-            user.기타 = 기타
-            user.조미료 = 조미료
+            user.기타 = 1
+            user.조미료 = 1
             user.견과류 = 견과류
             user_history.objects.create(
                 user_num = user.pk,
