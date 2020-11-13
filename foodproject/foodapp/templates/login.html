@@ -8,7 +8,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>메뉴친구 | 로그인</title>
+    <title>메뉴친구</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -293,11 +293,21 @@
 
             <div class="checkout__form">
                 {% if user.is_authenticated %}
-                <h4>로그인 성공!
-                {{ user.username }}님 환영합니다.</h4>
+                {% comment %} <h4>로그인 성공!
+                {{ user.username }}님 환영합니다.</h4> {% endcomment %}
                 {% comment %} <a href="{% url 'logout' %}">로그아웃</a> {% endcomment %}
 
-                <h4>일주일 추천 식단</h4>
+
+                <section class="related-blog spad">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="section-title related-blog-title">
+                                    <h2>{{ user.username }}님의 취향을 반영해<br>함께 만드는 일주일 식단</h2>
+                                </div>
+                            </div>
+                
+                {% comment %} <h4>일주일 추천 식단</h4> {% endcomment %}
                 <style type="text/css">
                 .tg  {border-collapse:collapse;border-color:#bbb;border-spacing:0;}
                 .tg td{background-color:#E0FFEB;border-color:#bbb;border-style:solid;border-width:1px;color:#594F4F;
@@ -338,11 +348,17 @@
                     <td class="tg-0lax"></td>
                     <td class="tg-0lax"></td>
                 </tr>
+                </section>
             </br>
-                Users.pk = {{Users.pk}}
+
+
+
+
+                {% comment %} {{Users.pk}} {% endcomment %}
+                {% comment %} Users.pk = {{Users.pk}} {% endcomment %}
 
                 <input type="hidden" name="Users_pk" value="{{Users.pk}}">
-            </br>
+            {% comment %} </br>
                 
             <a href="{% url 'recipe_1' menu_index1 Users.pk %}" >{{title1}}  {{menu_index1}}</a>
             <input type="hidden" name="menu_index1" value="{{menu_index1}}">
@@ -361,6 +377,10 @@
         </br>
             <a href="{% url 'recipe_1' menu_index6 Users.pk %}" >{{title6}}  {{menu_index6}}</a>
             <input type="hidden" name="menu_index6" value="{{menu_index6}}">
+        </br> {% endcomment %}
+                {% for id in mf_main_10 %}
+                 {% comment %} {{id}} {% endcomment %}
+                {% endfor %}
         </br>
                 </br>
                 
@@ -384,7 +404,119 @@
                 </table>
                 <br>
                 
-
+<!-- Related Blog Section Begin -->
+                <section class="related-blog spad">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="section-title related-blog-title">
+                                    <h2>당신에게 추천합니다<br>원하는 메뉴를 클릭하세요</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                <div class="blog__item">
+                                    <div class="blog__item__pic">
+                                        <img src="/static/img/m.png" alt="메뉴추천">
+                                    </div>
+                                    <div class="blog__item__text">
+                                        {% comment %} <ul>
+                                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                            <li><i class="fa fa-comment-o"></i> 5</li>
+                                        </ul> {% endcomment %}
+                                        <h5><a href="{% url 'recipe_1' menu_index1 Users.pk %}" >{{title1}}  </a>
+                                        <input type="hidden" name="menu_index1" value="{{menu_index1}}"></h5>
+                                        <p>{{menu_index1}} </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                <div class="blog__item">
+                                    <div class="blog__item__pic">
+                                        <img src="/static/img/m.png" alt="메뉴추천">
+                                    </div>
+                                    <div class="blog__item__text">
+                                        {% comment %} <ul>
+                                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                            <li><i class="fa fa-comment-o"></i> 5</li>
+                                        </ul> {% endcomment %}
+                                        <h5><a href="{% url 'recipe_1' menu_index2 Users.pk %}" >{{title2}} </a>
+                                            <input type="hidden" name="menu_index2" value="{{menu_index2}}"></h5>
+                                        <p>{{menu_index2}} </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                <div class="blog__item">
+                                    <div class="blog__item__pic">
+                                        <img src="/static/img/m.png" alt="메뉴추천">
+                                    </div>
+                                    <div class="blog__item__text">
+                                        {% comment %} <ul>
+                                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                            <li><i class="fa fa-comment-o"></i> 5</li>
+                                        </ul> {% endcomment %}
+                                        <h5><a href="{% url 'recipe_1' menu_index3 Users.pk %}" >{{title3}}  </a>
+                                            <input type="hidden" name="menu_index3" value="{{menu_index3}}"></h5>
+                                        <p>{{menu_index3}} </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                <div class="blog__item">
+                                    <div class="blog__item__pic">
+                                        <img src="/static/img/m.png" alt="메뉴추천">
+                                    </div>
+                                    <div class="blog__item__text">
+                                        {% comment %} <ul>
+                                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                            <li><i class="fa fa-comment-o"></i> 5</li>
+                                        </ul> {% endcomment %}
+                                        <h5><a href="{% url 'recipe_1' menu_index4 Users.pk %}" >{{title4}}  </a>
+                                        <input type="hidden" name="menu_index4" value="{{menu_index4}}"></h5>
+                                        <p>{{menu_index4}} </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                <div class="blog__item">
+                                    <div class="blog__item__pic">
+                                        <img src="/static/img/m.png" alt="메뉴추천">
+                                    </div>
+                                    <div class="blog__item__text">
+                                        {% comment %} <ul>
+                                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                            <li><i class="fa fa-comment-o"></i> 5</li>
+                                        </ul> {% endcomment %}
+                                        <h5><a href="{% url 'recipe_1' menu_index5 Users.pk %}" >{{title5}} </a>
+                                            <input type="hidden" name="menu_index5" value="{{menu_index5}}"></h5>
+                                        <p>{{menu_index5}} </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                <div class="blog__item">
+                                    <div class="blog__item__pic">
+                                        <img src="/static/img/m.png" alt="메뉴추천">
+                                    </div>
+                                    <div class="blog__item__text">
+                                        {% comment %} <ul>
+                                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                            <li><i class="fa fa-comment-o"></i> 5</li>
+                                        </ul> {% endcomment %}
+                                        <h5><a href="{% url 'recipe_1' menu_index6 Users.pk %}" >{{title6}}  </a>
+                                            <input type="hidden" name="menu_index6" value="{{menu_index6}}"></h5>
+                                        <p>{{menu_index6}} </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Related Blog Section End -->
 
 
                 {% else %}
